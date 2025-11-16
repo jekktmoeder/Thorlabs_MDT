@@ -1,1035 +1,0 @@
-RSRC
-
-LVARLBVW
-++++
-Serialcom VIs
-Serialcom Ctrls
-	MDT693.vi
-Serial Read.vi
-Serial Write.vi
-Serial Port Init.vi
-InstrUse
-VVVVV
-VVVVVV
-VVVQQQQQQQQQQQQQQQQQQQQQ
-QQQQ
-VVVQQ
-VVVVVQQ
-QQQQQ
-VVVVVVQQ
-QQQQQQQQQQQQQQQQQQ
-Serial Response
-Port Number
-
-error code
-Wait for Data Timeout (msec)
-Serial Write
-input XON/XOFF
-input HW Handshake
-input alt HW HShk
-output XON/XOFF
-output HW Handshake
-output alt HW HShk
-	XOFF byte
-XON byte
-parity error byte
-Flow control etc.
-	baud rate
-1 bit
-1.5 bits
-2 bits	stop bits
-	no parity
-odd parityeven paritymark parityspace parity
-parity
-	data bits
-buffer sizePort Settings
-Port number
-LVINLBVW_
-LVIN
-Bytes At Serial Port.vi
-port number
-
-byte count
-
-error codePTH05
-<vilib>
-Instr
-Serial.llb
-Serial Port Read.vi
-string read
-requested byte count
-port numberPTH01
-;	
-	
-
-P"
-c
-ext
-c 
-Serial Responsex0
-dfdP0
-txdP0
-oldP0
-udf"P
-extZ P
-
-error code
-c<
-port number&
-Wait for Data Timeout (msec)
-c0
-VIDS
-pPTH0
-lPTH0
-i386W
-	codep/
-EPPU
-EPQRP
-QRPQ
-d$ZY=
-EPQRPQ
-d$ZY
-ZYQR
-d$=
-		
-
-
-_^ZY[]
-SQRVW
-T$ QRP
-PTAB
-SQRVWQRU
-FDQRh
-ZY_^ZY[]
-%-5%
-	CODEp/
-Oldest compatible LabVIEW.
-xzzp
-
-error code"@
-Wait for Data Timeout (msec)
-\Serial Read: this VI polls the bytes at the serial port after the set delay time then conducts a read if bytes are at the port.
-NOTE: This technique will NOT work well for instruments that transmit data only in a constant stream. You need to use the Serial read window.VI.
-
-
-Written by Jack Hamilton 2-19-2000
-
-Enjoy - Free distribution in your LabVIEW applications
-
-DO NOT distrubute this program to public forums or publish without authors express permission.
-
-Jack Hamilton
-LabVIEW Consulting
-Lab-Useful: LabVIEW Tips, Tricks and Downloads
-http://www.lanset.com/salient1
-714-839-6375
-Hamilton2@aol.com
-%.0f
-VVVQQQQQQQQQQQQQQQQQQ
-VVVVQ
-DTHPD
-Port Number$
-
-byte count(
-millisecond timer value
-
-error code*
-requested byte count 
-string readn
-port number*
-milliseconds to wait2
-port numberN
-S%`aS&`a
-Port Number[
-Serial ResponseH
-
-error codeh
-Wait for Data Timeout (msec)H
-e,rXe-rX
- False c
-Bytes At Serial Port.vi_
-FPHP
-R"ub
-R$ab
-b)u[
-Ab"k)
-k"u)
-		g+s1
-The Port Number control specifies the serial port accessed for read or write operations.  The control is zero-based, so Port Number 0 corresponds to serial port 1, Port Number 1 = serial port 2, etc
-The Serial Write control contains the string written to the selected serial port if Write is selected on the action control.  The string is normally an instrument-specific command for the device connected to the serial port.L
-.error code. If error code is non-zero, an error occurred. Refer to Appendix C, Error Codes, for a list of error codes.
-You can connect error code to one of the error handler VIs. These VIs furnish you with a description of the error, and give you options on how to proceed when an error occurs. For more information on using the error handler VIs, refer to Chapter 18, Error Handler VIs, of your LabVIEW user manual.
-Some error codes returned by the serial port VIs are platform-specific. Please refer to your system documentation for a list of error codes.
-
-d+sY
-BDHP
-$PTH0
-PTH0
-X4
-
-$4
-
-XP	4o
-	(	H
- 
-`( 
-, `4
-NI.LV.ALL.VILastSavedTarget
-Dflt
-NI.LV.ALL.goodSyntaxTargets&
-Dflt(
-Microsoft Sans Serif
-0RSRC
-
-RSID
-<LVSR
-PBDPW
-dLIvi
-xCPTM
-DSTM
-DFDS
-LIds
-VICD
-vers
-DLDR
-FPTD
-CPMp
-,STRG
-@ICON
-icl8
-DTHP
-TRec
-LIfp
-LIbd
- BDHP
-4VITS
-HHIST
-\PRT 
-pFTAB
-	0Ld
-&H ]
-133333
-LVINLBVW3
-d 3|
-B~wl
-Serial Port Write.vi
-string to write
-port numberPTH02
-Serial Writep0
-ext
-c
-
-error code
-c
-Port Number
-c
-Sample String
-i3868
-	code@
-CODE@
-XSerial  Write: Written by Jack Hamilton 2-19-2000
-
-Enjoy - Free distribution in your LabVIEW applications
-
-DO NOT distrubute this program to public forums or publish without authors express permission.
-
-Jack Hamilton
-LabVIEW Consulting
-Lab-Useful: LabVIEW Tips, Tricks and Downloads
-http://www.lanset.com/salient1
-714-839-6375
-Hamilton2@aol.com
-VVVVQQ
-Port Number&
-port number$
-
-error codeV
-port number<
-h	WD
-Port NumberX
-Serial WriteH
-
-error codeH
-FPHP
-`8(K
-gah;	
-Dtt
-0`
-LPTH0
-8	tL
-	t;	
-	4
-
-	43
-\		
-d 3| 4
-|icl8
-TRec	
-LIbd
-VITS
-HIST
-PRT 
-FTAB
-(8dd
-3"23@
-3#03D
-@ssssss3s3333s33sss3ss333ss3s3s333ss3ss3s3
-DD@D
-3AP
-3333
-3EP
-LVINLBVW
-E=XHTC
-Open Serial Driver.vi
-B
-		
-Instrinput refnum
-input error
-Instroutput refnum
-output errorPTH04
-instr_sersup.llb
-Serial Port Buffer Size.vi
-error
-Instr
-out ref (unused)
-in ref
-buffer size
-port number (unused)PTH09
-Serial Port Reset.vi
-input XON/XOFF @!
-input Hardware HShk.(RTS)
-input alt HW HShk.(DTR)
-output XON/XOFF @!
-output Hardware HShk.(CTS)
-output alt HW HShk.(DSR)
-flow control etc.$@p
-output refnum (unused)
-Instrinput refnum@
-	stop bits
-	baud ratePTH03
-	baud rate&@
-2 bits	stop bitsH@
-Port number	
-P;
-c
-Flow control etc..pP	
-dfd.PP	
-txd.PP	
-old.PP	
-	data bits
-c
-2 bits	stop bitsL
-parity
-@
-error
-c\
-Flow control etc.@
-	stop bits
-c
-output error
-cD
-	data bits
-cH
-
- dT
-L	
-*
-PTH0
-i386
-	code
-_^VW
-Eu	
-]
-
-$aCODE
-buffer sizePort Settings
-
-Initializes the selected serial port to the specified settings.
-
-Modified by Jack Hamilton 2-16-2000 Put Port settings in cluster to clean up sub-VI wiring usage.
-
-%.0x
-%.0f#PTH0
-	<helpdir>lvinstio.hlp
-Serial Port Init
-VVVV
-	baud rate 
-buffer sizeT
-parity6
-
-error code$
-input HW Handshake$
-output alt HW HShk&
-input alt HW HShk 
-	XOFF byte$
-XON byte&
-	stop bits*
-port number (unused)*
-buffer size"
-output error 
-in ref*
-parity0
-flow control etc.
-error.
-port number (unused)
-output error
-	|	|	|
-@	UD
-	baud rateR
-parityH
-	data bitsWD
-buffer sizeZ
-input XON/XOFFV
-		
-XOFF byte W
-Port numberVD
-
-error code]
-Flow control etc.^D
-input HW Handshake]D
-input alt HW HShk[D
-output XON/XOFF_D
-output HW Handshake^D
-output alt HW HShkTD
-XON byte]
-parity error byteU
-	stop bitsH
-Port Settings
-YNOTES:
-Port 0=COM1
-Port 1=COM2
-MAC: 0=Modem
-         1=Printer
-SUN:0=ttya
-       1=ttyb..H
- False RE
- True H
-Serial Port Buffer Size.vi`
-Serial Port Reset.via
-Open Serial Driver.vi>
-2 bits"
-@
-FPHP,X
-4t*`
-@@	P
-+p4	
-
-@@
-
-A0
-	
-@@
-A0	
-4<S
-,4
-
-0		7	D
-0		
-	0h0
->.5t(H
-1;	x
-dL4	8
-When you use the serial port VIs under Windows, the port number parameter can have the following values:
-0:	COM1	5:	COM6	10:	LPT1
-1:	COM2 	6:	COM7	11:	LPT2
-2:	COM3	7:	COM8	12:	LPT3
-3:	COM4	8:	COM9	13:	LPT4
-4:	COM5
-
-On the Macintosh, port 0 is the modem, using the drivers .ain and .aout. Port 1 is the printer, using the drivers.bin and .bout. To get more ports on a Macintosh, you must install other boards, with the accompanying drivers.
-
-On SunOS, the default mapping for port numbers is /dev/ttya, /dev/ttyb, and so on.
-
-On Solaris, the default mapping for port numbers is /dev/cua/a, /dev/cua/b, and so on.
-
-On HPUX, the default mapping for port numbers is /dev/tty00, /dev/tty01, and so on.  NOTE that these defaults work for HPUX 9.x but don't work for HPUX 10.x.  Use the serialDevices preference in your preferences file to adjust the names.  On HPUX 10.x the built-in serial ports are usually named /dev/tty0p0 and /dev/tty1p0.
-
-On Cuncurrent, the default mapping for port numbers is /dev/console, /dev/tty1, /dev/tty2, and so on.
-L
-"error code is -1 if baud rate, data bits, stop bits, parity, or port number are out of range, or if the serial port could not be initialized. Check the values of baud rate, data bits, stop bits, parity, and port number. If these values are valid, verify that the serial port has been initialized.
-Refer to Appendix C, Error Codes, for a list of error codes.
-You can connect error code to one of the error handler VIs. These VIs can furnish you with a description of the error, and give you options on how to proceed when an error occurs. For more information on using the error handler VIs, refer to Chapter 18, Error Handler VIs, of your LabVIEW user manual.
-Some error codes returned by the serial port VIs are platform-specific. Please refer to your system documentation for a list of error codes.
-
-
-XON/XOFF is a software handshaking protocol you can use to avoid overflowing serial port buffers. When the receive buffer is nearly full, the receiver sends XOFF (<controlS> [decimal 19]) to tell the other device to stop sending data. When the receive buffer is sufficiently empty, the receiver sends XON (<controlQ> [decimal 17]) to indicate that transmission can begin again. When you enable XON/XOFF, the devices always interpret <controlQ> and <controlS> as XON and XOFF characters, never as data. When you disable XON/XOFF, you can send <controlQ> and <controlS> as data. Do not use XON/XOFF with binary data transfers because <controlQ> or <controlS> may be embedded in the data, and the devices will interpret them as XON and XOFF instead of data.
-
-qInput HW Handshake. On the PC and SPARCstation, this parameter corresponds to Request To Send (RTS) handshaking.
-|
-hOutput XON/XOFF. See the Common Serial Port VI Parameters section of this chapter for more information.
-
-Input alt HW Handshake. On the PC, this parameter corresponds to Data Terminal Ready (DTR) handshaking. On the SPARCstation, this parameter is ignored.
-
-pOutput HW Handshake. On the PC and SPARCstation, this parameter corresponds to Clear to Send (CTS) handshaking.
-L
-Output alt HW Handshake. On the PC, this parameter corresponds to Data Set Ready (DSR) handshaking. On the SPARCstation, this parameter is ignored.
-L
-*XOFF byte is the byte used for XOFF (^S).
-L
-(XON byte is the byte used for XON (^Q).
-X
-Cparity is 0 for no parity, 1 for odd parity, or 2 for even parity.
-L
-hdata bits is the number of bits in the incoming data. The value of data bits is between five and eight.
-
-Parity Error Byte. If the high byte is non-zero, the low byte is the character that is used to replace any parity errors found when parity is enabled.
-L
-'baud rate is the rate of transmission.
-P
-:stop bits is 0 for one stop bit, or 1 for two stop bits. 
-
-buffer size indicates the size of the input and output buffers the VI allocates for communication through the specified port. If buffer size is less than or equal to 1 K, the VI uses 1 K as the buffer size. You may need to use larger buffers for large data transfers.
-L
-Da-|;	x
-X/ 8
-h	DB,
-,`1h<
-h0hB8
-,108
-hB8"h
-B8"h
-8"hXB8"
-6X
-	
-,B8&
-7<8*h
-O8PTH0
-@
-BDHPI
-8Wx  
-$x#$#D4,b
-I7A'
-d4-
-
-D4.
-
-,4/0
-V<4/0
-lV<4/0
-Tp4/
-DW4.d
-4//D
-P4/0
-pV<4/
-P	4Z
-T00
-e q(k$
-	8	X 0
-P	X00-
-"Zwc
-
-4
-T 0
-
-4 0
-
-T40
-'Z~c
-4 0
-+`g-
-T#d
-00*Tx(gwp
-DH
-T 0
-@@T
-H
-T40
-00*TT)g~p
-P$4 0
-@@T
-$440
-hP	4
-41/
-01*T
-</g@pIkD 1
-@@T
-H
-T 1
-d$4 1
-401-
-001*
-$Tp 1
-Tp01-
-Tp 1
-Tp41
-h.Z@cI^D
-D-,Z 
-aJL;	Di
-1;	Di
-,P!l!
-"D 1
-,41
-
-@@T$
-h02*
-(,(L)
-T%|N
-02-	
-*( 2
-T+DP
-T$x$
-&x 2
-@@T%
-@@T(l
-T'HH
-0'd$
-@@T'
-D)$5
-)@ 2
-)@)`)
-D*4
-)@#D
-@@T%H#
-%H*H
-D+(E
-#D*(&
-*x*(<2
-	H$
-"$(,)@*x&
-	X
-T4
-	8
-4
-(L)`*
-
-t	x
-;	Di
-Wx;	Di
-, \ XJ
-JK<KlKD21
-$433
-4MTM
-M4 3
-	43
-
-443O8N
-O8Ql 
-R`443
-#D443
-O8RL
-R` 4
-xU$S
-PH$4
-V< 4
-Q8Sd443
-
-tUXT
-LWPTp
-R`D41
-DS@T
-0YPy
-0YPi@a453
-<0i8y4q
-&@iHyDq
-V($HiPyLq
-V< 5
-V<,5
-T@;8i@y<q
-steve
-The baud rate parameter has been changed to uInt32 for fast ports.  This may still be restricted on some platforms by lower level limitations.(
-xLVSR
-BDPW
-LIvi
-CPTM
-,DLDR
-@FPTD
-TCPMp
-hSTRG
-
-|HLPP
-XHLPT
-lICON
-TRec'
-CPST
-,BDHP
-@VITS
-THBIN
-hHBUF
-|HIST
-%<0\
-'\|a
-(,8]
-(8P`
-(D`b
-(tlb
--HxS
-98_
-<l\Q
-BH8T
-C,LX
-Cx ]
-D\Pc
-G 4d
-#PTH0
-ZSerial Terminal: Written by Jack Hamilton 2-19-2000
-
-Enjoy - Free distribution in your LabVIEW applications
-
-DO NOT distrubute this program to public forums or publish without authors express permission.
-
-Jack Hamilton
-LabVIEW Consulting
-Lab-Useful: LabVIEW Tips, Tricks and Downloads
-http://www.lanset.com/salient1
-714-839-6375
-Hamilton2@aol.com
-?f"" 
-33333333333333
-1333
-1333
-?RSRC
-
-LVIN	MDT693.vi
-Port numberPTH0
-Serial WritePTH0
-Wait for Data Timeout (msec)PTH0
-ttPQ
-c
-error code init
-udfP
-
-X AXIS
-
-b P
-udf
-P
-
-Slide
-Flow control etc.
-c
-offset past number
-Port Number
-cD
-
- d6
-^J	~
-VIDS	MDT693.vi
-XPTH0
-\PTH0
-TPTH0
-$QRRVh
-QRQWV
-QRRWP
-QRhh
-QRPf
-E\QRP
-P6	<(
-
-P6	6	
-|Bn
-*N
-	=
-W
-a
-w
-
-CODE
-buffer sizePort Settings@
-
-X AXIS
-@
-
-%.1f
-%#_g
-fffffff`
-ffffffff`
-fffffff``
-ffffffff
-output XON/XOFF&
-input alt HW HShk$
-input HW Handshake 
-Flow control etc. 
-offset past number$
-Serial Response|
-Port number&
-Serial WriteP
-Serial Write$
-output HW Handshake$
-	baud rate6
-2 bits	stop bitsT
-Port Number[D
-error code init]
-Flow control etc.Z
-input XON/XOFF^D
-output alt HW HShkV
-		
-XOFF byte TD
-parity error byteY
-Port SettingsUD
-	baud rateU
-buffer sizel
- NOTES:
-Port 0=COM1
-Port 1=COM2
-.R
-X AXISH
-  QD
-SlideH
- False H
-Serial Read.vi[
-Serial Write.vi_
-Serial Port Init.viHD
-2 bits>
-	no parity
-odd parityeven paritymark parityspace parity
-FPHP	MDT693.vi
-FPHP+
-/`0t0
-1\<
-|<1\2
-0t/`/
-`1$4
-
-\`1
-!D02|4	
-
-O
-0"
-@@
-A0	
-c3$#7B
-&4
-
-8@
-@@
-A0	
-l4
-
-5h&:
-Input alt HW Handshake. On the PC, this parameter corresponds to Data Terminal Ready (DTR) handshaking. On the SPARCstation, this parameter is ignored.
-L
-qInput HW Handshake. On the PC and SPARCstation, this parameter corresponds to Request To Send (RTS) handshaking.
-
-pOutput HW Handshake. On the PC and SPARCstation, this parameter corresponds to Clear to Send (CTS) handshaking.
-|
-hOutput XON/XOFF. See the Common Serial Port VI Parameters section of this chapter for more information.
-L
-(XON byte is the byte used for XON (^Q).
-@
-*XOFF byte is the byte used for XOFF (^S).
-
-:stop bits is 0 for one stop bit, or 1 for two stop bits. 
-X
-hdata bits is the number of bits in the incoming data. The value of data bits is between five and eight.
-L
-OBaud rate is the rate of transmission. Check the device your communicating to for it's defualt Baud setting.
-
-In correct baud settings will result in no function.
-
-CAUTION: If your serial instrument takes a command to reset the buad rate - the baud rate command MUST be set at the DEFAULT baud rate for the instrument!. Then you must reset the computer baud rate to match the instrument for subsequent commands for successful serial communication. You may have to reset the buad rate every time you power up the insrument. You'll need to write a custom routine to initialize the instrument.
-
-buffer size indicates the size of the input and output buffers the VI allocates for communication through the specified port. If buffer size is less than or equal to 1 K, the VI uses 1 K as the buffer size. You may need to use larger buffers for large data transfers.
-
-T*(*
--D-t-
-0BH,
-,l"8
-h/`B<
-h0tB<
-h1\B8
-2<
-	
- D38
-h<B8
-|B,!
-<3P8!h
-B8!h
-BH,!
-`4\,)
-@7\8)
-6$8+h
-pB8+
-B8/h)
-BRm>
-/|,/
-/|</
-	>|)
-j
--<0
-:<=D=t<
-@1P
-
-:LO,1
-<|L1
-2:
-	
-Ip3
-Jp3	
-p83h:B8L88R
-03		79T
-03		
-2>8(
-
-104	
-2>8-
-
-245
-
-D9P9T
-87h9TB8
-BDHP	MDT693.vi
-:xPTH0
-8PTH0
-BDHP4x 
-C>XC
-	|47
-
-<@7	6@
-4470
-	07$
- 07%
-87(%
-,VDbT\P
-X
- !H
-0	DO
-	\	| 7
-	|,7
-
-p?>
-@7P
-3@	
- @| 7
-@@
-p
-07.
-p`
-1
-pP	4R
-T48
-
-$ 9
-$09-
-=09-
-@@
-p0
-$49
-09-	
-p
-l49
-
-84:
-
-B0<	
-:\1@
-0<*	
-#L4<
-#|4<
-
-$%` =
-X$,#
-$4=
-%@%`%
-%@ =
-$t$,%
-$4=0
-4=0$t
-t&<7
-4=0$t$`Kl
-X<l/
-	L=
-3&p	
-*(,=
-@(<&
-@(<+
-*H*(4=/X&
-4=0(
-*(0=?(<(
-(<(t.
-@(<-
-0=?(<*
-8=N '
-5|E4=
-
-	2+x	
-0>		3+	
-0>		
-@(<.l.
-0>?(<-
-X!,.
-#L$
-051;	Xi
-;	Xi
-1;	Xi
-BDBtB
-8>h+B8>h+xB
-8>h&pB8>
-2&p
-	
-70' 'l6
-	4A3
-8D%t
-94 A
-944A3
-89T9
-89 
-X:@;(a
-X8$t,A
-8$#L$t4A
-
-:x<8*q
-<L B
-<LDB1
-	4B
-
-=T(s
-=h C
-= =h4C3
->8 C
-(<AP
-4
-p:x
-8Eh@B,E
-@x<EO
-8Eh@
-B`E!
-2@
-	
-@E4G
-AP:x'
-*((<(
-D$
-p
-ArialRSRC
-
- 4	(
-`LVSR
-tBDPW
-(FPTD
-<CPMp
-PSTRG
-dICON
-icl4
-TRec2
-PICC
-,LIfp
-TFPHP
-hLIbd
-|BDHP
-*\PE
-DtHh
-MTX^
-N8d[
-adir
-LVIN
-LVIN
-Serial Port Init.viRSRC
-
-ADir
-PALM
-PLM2
-ICON
-8icl4
-STR 
-PSTR#
-CPRF
-STRG
-hHLPP
-HLPT
-LtH
-paletteMenu
-ctlMenupaletteMenu
-ctlMenupaletteMenupaletteMenupaletteMenu
-ctlMenu
-ctlMenu	MDT693.vi
-Serial Write.vi	MDT693.vi	MDT693.vi	MDT693.vi	MDT693.vi	MDT693.vi
