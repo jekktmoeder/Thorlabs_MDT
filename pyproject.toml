@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Thorlabs_MDT"
+version = "0.1.0"
+description = "Python control interfaces and GUI for Thorlabs MDT piezo controllers"
+authors = [ { name = "JovanMarkov96" } ]
+license = { text = "MIT" }
+readme = "README.md"

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# SPDX-License-Identifier: MIT
 """
 connect_mdt.py - connect to a device from `mdt_devices.json` by COM port,
 send commands and receive responses.

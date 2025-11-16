@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 # MDT package public API
 from .controller import MDTController, HighLevelMDTController, discover_mdt_devices as _discover_from_controller
 

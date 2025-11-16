@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 from ctypes import *
 
 #region import dll functions

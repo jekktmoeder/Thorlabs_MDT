@@ -1,4 +1,5 @@
 ﻿#!/usr/bin/env python
+# SPDX-License-Identifier: MIT
 """
 MDT Piezo Controller GUI - Multi-Device Version
 

@@ -1,6 +1,7 @@
 """
 Local MDT_COMMAND_LIB.py wrapper that automatically selects correct DLL architecture
 """
+# SPDX-License-Identifier: MIT
 
 from ctypes import *
 import struct
