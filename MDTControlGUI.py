@@ -155,10 +155,12 @@ class DeviceTabWidget(QWidget):
         controls_group = QGroupBox("Voltage Control")
         controls_layout = QVBoxLayout()
         
+        # Only create controls for axes that exist on this specific device
         for axis in self.controller.controller.axes:
-            axis_widget = AxisControlWidget(axis, self.controller.voltage_limits[axis], self)
-            self.axis_controls[axis] = axis_widget
-            controls_layout.addWidget(axis_widget)
+            if axis in self.controller.voltage_limits:
+                axis_widget = AxisControlWidget(axis, self.controller.voltage_limits[axis], self)
+                self.axis_controls[axis] = axis_widget
+                controls_layout.addWidget(axis_widget)
         
         controls_group.setLayout(controls_layout)
         layout.addWidget(controls_group)
@@ -215,11 +217,31 @@ class DeviceTabWidget(QWidget):
         self.setLayout(layout)
     
     def quick_set(self, voltage):
-        """Set all axes to voltage"""
+        """Set all axes (that exist on this device) to voltage"""
+        safety_enabled = self.safety_check.isChecked()
+        
         for axis in self.controller.controller.axes:
             safe_max = self.controller.voltage_limits[axis]["safe_max"]
-            if voltage <= safe_max:
+            
+            # Only check safety if checkbox is enabled
+            if safety_enabled and voltage > safe_max:
+                # Log warning if voltage exceeds safe max and safety is ON
+                parent = self.parent()
+                while parent and not isinstance(parent, MDTControlGUI):
+                    parent = parent.parent()
+                if parent:
+                    parent.log(f"{self.port}: Quick-set {voltage}V exceeds safe max {safe_max:.1f}V for {axis} (Safety is ON)", "WARNING")
+            else:
+                # Set voltage (either safety is off, or voltage is within limits)
                 self.controller.set_voltage(axis, voltage)
+                # Update the slider/spinbox for this axis
+                if axis in self.axis_controls:
+                    widget = self.axis_controls[axis]
+                    widget.updating = True
+                    widget.slider.setValue(int(voltage * 10))
+                    widget.spinbox.setValue(voltage)
+                    widget.last_valid_value = voltage
+                    widget.updating = False
     
     def zero_all(self):
         """Set all axes to zero"""

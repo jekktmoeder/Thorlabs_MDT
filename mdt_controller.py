@@ -88,6 +88,27 @@ class MDTController:
             response = self.send_command("ID?")
             if response and "MDT" in response:
                 self.is_connected = True
+                
+                # Set default voltage limits to 0V min and 150V max for all axes
+                for axis in self.axes:
+                    self.send_command(f"{axis}L0")  # Set lower limit to 0V
+                    time.sleep(0.05)
+                    self.send_command(f"{axis}H150")  # Set upper limit to 150V
+                    time.sleep(0.05)
+                
+                # Disable echo mode on legacy devices (MDT693A)
+                # They echo commands by default, preventing us from reading voltage values
+                if self.is_legacy_protocol:
+                    echo_status = self.send_command("ECHO?")
+                    if echo_status and "1" in echo_status:
+                        # Echo is ON, turn it OFF
+                        self.send_command("ECHO=0")
+                        time.sleep(0.2)
+                        # Verify it's off
+                        verify = self.send_command("ECHO?")
+                        if verify and "0" in verify:
+                            print(f"Echo mode disabled on {self.model}")
+                
                 return True
             else:
                 self.disconnect()
@@ -146,7 +167,8 @@ class MDTController:
         if not self.connection:
             return None
             
-        cmd_timeout = timeout or self.timeout
+        # Use longer timeout for legacy devices
+        cmd_timeout = timeout if timeout is not None else (self.timeout * 2 if self.is_legacy_protocol else self.timeout)
         
         try:
             # Clear buffers
@@ -157,8 +179,9 @@ class MDTController:
             self.connection.write(cmd_bytes)
             self.connection.flush()
             
-            # Wait for response
-            time.sleep(0.05)  # Brief pause for device processing
+            # Wait for response - longer for legacy devices
+            pause_time = 0.15 if self.is_legacy_protocol else 0.05
+            time.sleep(pause_time)  # Brief pause for device processing
             
             response = b""
             start_time = time.time()
@@ -167,11 +190,15 @@ class MDTController:
                 if self.connection.in_waiting > 0:
                     chunk = self.connection.read(self.connection.in_waiting)
                     response += chunk
-                    
-                    # Check for completion markers
-                    if b'>' in response or b'!' in response:
+
+                    # Check for common completion markers used by MDT devices
+                    # legacy units sometimes use '*' as a terminator in our probes,
+                    # and most responses include CR/LF. Stop early when we see any
+                    # of these so we don't wait the full timeout unnecessarily.
+                    if any(term in response for term in (b'>', b'!', b'*', b'\n', b'\r')):
                         break
-                        
+
+                # Small sleep so loop isn't busy-waiting
                 time.sleep(0.02)
             
             if response:
@@ -223,7 +250,7 @@ class MDTController:
     
     def get_voltage(self, axis: str) -> Optional[float]:
         """
-        Get voltage for specified axis
+        Get voltage for specified axis using short-form query (XR?, YR?, ZR?)
         
         Args:
             axis: Axis name ("X", "Y", "Z")
@@ -234,21 +261,31 @@ class MDTController:
         if axis.upper() not in self.axes:
             return None
             
-        command = f"{axis.upper()}VOLTAGE?"
+        # Use short-form read command: XR?, YR?, ZR?
+        command = f"{axis.upper()}R?"
         response = self.send_command(command)
         
         if response:
+            num = self._extract_number(response)
+            if num is not None:
+                return num
+        
+        # Fallback to long-form for compatibility
+        command = f"{axis.upper()}VOLTAGE?"
+        response = self.send_command(command)
+        if response:
             return self._extract_number(response)
+        
         return None
     
     def set_voltage(self, axis: str, voltage: float, verify: bool = True) -> bool:
         """
-        Set voltage for specified axis
+        Set voltage for specified axis using short-form command (XV1, ZV50, etc.)
         
         Args:
             axis: Axis name ("X", "Y", "Z")
             voltage: Target voltage in volts
-            verify: Whether to verify by reading back (default True)
+            verify: Whether to verify by reading back (default True, ±1V tolerance)
             
         Returns:
             bool: True if successful
@@ -261,19 +298,40 @@ class MDTController:
             print(f"Voltage {voltage}V out of range [{self.voltage_min}, {self.voltage_max}]")
             return False
         
-        command = f"{axis.upper()}VOLTAGE={voltage:.2f}"
+        # Build short-form command: XV1 or XV1.25 (no space, no equals)
+        if abs(voltage - round(voltage)) < 1e-9:
+            value_str = f"{int(round(voltage))}"
+        else:
+            value_str = f"{voltage:.2f}"
+        
+        command = f"{axis.upper()}V{value_str}"
         response = self.send_command(command, timeout=3.0)
         
         if not verify:
             return True
         
-        # Verify by reading back with retries
-        tolerance = 1.0  # 1.0V tolerance for piezo settling
+        # Verification with ±1.0V tolerance
+        tolerance = 1.0
         max_retries = 3
         
+        # Check if device echoed command (common on MDT693A)
+        if response:
+            lowresp = response.lower()
+            if lowresp.startswith(f"{axis.lower()}v"):
+                # Device acknowledged with echo
+                actual_voltage = self.get_voltage(axis)
+                if actual_voltage is None:
+                    # No numeric readback - accept echo as acknowledgement
+                    return True
+                elif abs(actual_voltage - voltage) <= tolerance:
+                    return True
+        
+        # Try reading back with retries
+        last_actual = None
         for attempt in range(max_retries):
-            time.sleep(0.15)  # Allow time for settling
+            time.sleep(0.15)
             actual_voltage = self.get_voltage(axis)
+            last_actual = actual_voltage
             
             if actual_voltage is not None:
                 diff = abs(actual_voltage - voltage)
@@ -281,10 +339,16 @@ class MDTController:
                     return True
                 elif attempt < max_retries - 1:
                     print(f"Retry {attempt+1}: set={voltage:.2f}V, actual={actual_voltage:.2f}V, diff={diff:.2f}V")
-            
-        # If we get here, verification failed but device may have moved
-        print(f"Warning: Verification uncertain for {axis}={voltage:.2f}V (last readback: {actual_voltage})")
-        return actual_voltage is not None
+        
+        # Accept if within tolerance, otherwise warn
+        if last_actual is not None:
+            within_tolerance = abs(last_actual - voltage) <= tolerance
+            if not within_tolerance:
+                print(f"Warning: {axis}={voltage:.2f}V, readback={last_actual:.2f}V (diff={abs(last_actual-voltage):.2f}V)")
+            return within_tolerance
+        
+        # No readback available - accept write
+        return True
     
     def get_all_voltages(self) -> Dict[str, float]:
         """
@@ -363,7 +427,7 @@ class MDTController:
     
     def get_voltage_limits(self, axis: str) -> Tuple[float, float]:
         """
-        Get voltage limits for specified axis
+        Get voltage limits for specified axis using short-form queries (XL?, XH?)
         
         Args:
             axis: Axis name ("X", "Y", "Z")
@@ -377,14 +441,14 @@ class MDTController:
         min_voltage = self.voltage_min
         max_voltage = self.voltage_max
         
-        # Try to get actual limits from device
-        min_response = self.send_command(f"{axis.upper()}MIN?")
+        # Use short-form limit queries: XL?, XH?
+        min_response = self.send_command(f"{axis.upper()}L?")
         if min_response:
             device_min = self._extract_number(min_response)
             if device_min is not None:
                 min_voltage = device_min
         
-        max_response = self.send_command(f"{axis.upper()}MAX?")
+        max_response = self.send_command(f"{axis.upper()}H?")
         if max_response:
             device_max = self._extract_number(max_response)
             if device_max is not None:
@@ -449,6 +513,11 @@ class HighLevelMDTController:
         if auto_discover and not port:
             self._auto_discover()
         elif port:
+            # If model not provided, look it up from device list
+            if not model:
+                devices = self._load_device_list()
+                if port in devices:
+                    model = devices[port].get("Model", "Unknown")
             self._initialize_device(port, model)
     
     def _auto_discover(self):
@@ -558,7 +627,10 @@ class HighLevelMDTController:
         
         # Get current voltage for comparison
         current = self.controller.get_voltage(axis)
-        print(f"Setting {axis}-axis: {current:.2f}V → {voltage:.2f}V")
+        if current is not None:
+            print(f"Setting {axis}-axis: {current:.2f}V → {voltage:.2f}V")
+        else:
+            print(f"Setting {axis}-axis to {voltage:.2f}V")
         
         success = self.controller.set_voltage(axis, voltage)
         
