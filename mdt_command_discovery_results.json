@@ -1,0 +1,2398 @@
+[
+  {
+    "port": "COM7",
+    "model": "MDT694B",
+    "serial_no": "0",
+    "connection_status": "connected",
+    "successful_commands": [
+      "*IDN?",
+      "ID?",
+      "VER?",
+      "VERSION?",
+      "info?",
+      "model?",
+      "serial?",
+      "?",
+      "help",
+      "HELP?",
+      "status?",
+      "STATUS?",
+      "XV?",
+      "xv?",
+      "VX?",
+      "vX?",
+      "GET X",
+      "get X",
+      "X GET",
+      "X get",
+      "VOLT X?",
+      "volt X?",
+      "VOLTAGE X?",
+      "voltage X?",
+      "XV 1",
+      "xv 1",
+      "VX 1",
+      "vX 1",
+      "SET X 1",
+      "set X 1",
+      "X SET 1",
+      "X set 1",
+      "VOLT X 1",
+      "volt X 1",
+      "VOLTAGE X 1",
+      "voltage X 1",
+      "XMAX?",
+      "xmax?",
+      "MAX X?",
+      "max X?",
+      "XMIN?",
+      "xmin?",
+      "MIN X?",
+      "min X?",
+      "VOLT?",
+      "volt?",
+      "V?",
+      "v?",
+      "VOLTAGE?",
+      "voltage?",
+      "ALL?",
+      "all?",
+      "LIMIT?",
+      "limit?",
+      "MAX?",
+      "max?",
+      "MIN?",
+      "min?",
+      "RANGE?",
+      "range?",
+      "SCAN?",
+      "scan?",
+      "SWEEP?",
+      "sweep?",
+      "SCAN ON",
+      "scan on",
+      "SCAN OFF",
+      "scan off",
+      "SWEEP ON",
+      "sweep on",
+      "SWEEP OFF",
+      "sweep off",
+      "ENABLE?",
+      "enable?",
+      "DISABLE?",
+      "disable?",
+      "SCANVOLT?",
+      "scanvolt?",
+      "SCANV?",
+      "scanv?",
+      "SWEEPVOLT?",
+      "sweepvolt?",
+      "SWEEPV?",
+      "sweepv?"
+    ],
+    "failed_commands": [],
+    "discoveries": {
+      "identification": [
+        {
+          "command": "*IDN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ID?",
+          "response": "Model MDT694B Piezo Control Module\rFirmware Version: 1.10\rVoltage Range: 0V to 150V\rSerial#:\rFriendly Name:\rThorlabs, Inc. Newton, NJ 07860\rwww.thorlabs.com\r\r>"
+        },
+        {
+          "command": "VER?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VERSION?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "info?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "model?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "serial?",
+          "response": ">"
+        },
+        {
+          "command": "?",
+          "response": "?\t\tGets list of all available commands.\rID?\t\tGets the product header and firmware version.\rRESTORE\t\tRestores all settings to their default values.\rECHO?\t\tGets echo status.\rECHO=\t\tSets echo status, (0=Off, 1=On) When on all commands are echoed back.\rVLIMIT?\t\tGets output voltage limit switch setting (0=75V, 1=100V, 2=150V).\rINTENSITY?\tGets display intensity (0-15).\rINTENSITY=\tSets display intensity (0-15).\rXVOLTAGE?\tGets the output voltage for the x axis.\rXVOLTAGE=\tSets the output voltage for the x axis.\rXMIN?\t\tGets the minimum output voltage limit for the x axis.\rXMIN=\t\tSets the minimum output voltage limit for the x axis.\rSYSMIN?\t\tGets the minimum output voltage limit for the system.\rSYSMIN=\t\tSets the minimum output voltage limit for the system.\rXMAX?\t\tGets the maximum output voltage limit for the x axis.\rXMAX=\t\tSets the maximum output voltage limit for the x axis.\rSYSMAX?\t\tGets the maximum output voltage limit for the system.\rSYSMAX=\t\tSets the maximum output voltage limit for the system.\rDACSTEP?\tGets channel step size used with up/down arrow keys. (1-5000).\rDACSTEP=\tSets channel step size used with up/down arrow keys. (1-5000).\rUp Arrow\tIncrease selected channel by the set step size.\rDown Arrow\tDecrease selected channel by the set step size.\rFRIENDLY?\tGets friendly name.\rFRIENDLY=\tSet friendly name.\rSERIAL?\t\tGets serial number.\rCM?\t\tGets MDT694A compatibility mode (0=Off, 1=On).\rCM=\t\tSets MDT694A compatibility mode (0=Off, 1=On).\rROTARYMODE?\tGets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rROTARYMODE=\tSets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rPUSHDISABLE?\tGets push to adjust disabled. (0 = Enabled, 1 = Disabled)\rPUSHDISABLE=\tSets push to adjust disabled. (0 = Enabled, 1 = Disabled)\r>"
+        },
+        {
+          "command": "help",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "HELP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "status?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "STATUS?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "voltage_control": [
+        {
+          "command": "XV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "GET X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "get X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X GET",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X get",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XV 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SET X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "set X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X SET 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X set 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMAX?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "xmax?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "MAX X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMIN?",
+          "response": "0\r>"
+        },
+        {
+          "command": "xmin?",
+          "response": "0\r>"
+        },
+        {
+          "command": "MIN X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "V?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "v?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ALL?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "all?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "LIMIT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "limit?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MAX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MIN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "RANGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "range?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "scan_control": [
+        {
+          "command": "SCAN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ENABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "enable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "DISABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "disable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepv?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ]
+    },
+    "baud_rate": 115200,
+    "status": "test_complete"
+  },
+  {
+    "port": "COM10",
+    "model": "MDT693A",
+    "serial_no": "",
+    "connection_status": "connected",
+    "successful_commands": [
+      "*IDN?",
+      "ID?",
+      "VER?",
+      "VERSION?",
+      "info?",
+      "model?",
+      "serial?",
+      "?",
+      "help",
+      "HELP?",
+      "status?",
+      "STATUS?",
+      "XV?",
+      "xv?",
+      "VX?",
+      "vX?",
+      "GET X",
+      "get X",
+      "X GET",
+      "X get",
+      "VOLT X?",
+      "volt X?",
+      "VOLTAGE X?",
+      "voltage X?",
+      "XV 1",
+      "xv 1",
+      "VX 1",
+      "vX 1",
+      "SET X 1",
+      "set X 1",
+      "X SET 1",
+      "X set 1",
+      "VOLT X 1",
+      "volt X 1",
+      "VOLTAGE X 1",
+      "voltage X 1",
+      "XMAX?",
+      "xmax?",
+      "MAX X?",
+      "max X?",
+      "XMIN?",
+      "xmin?",
+      "MIN X?",
+      "min X?",
+      "YV?",
+      "yv?",
+      "VY?",
+      "vY?",
+      "GET Y",
+      "get Y",
+      "Y GET",
+      "Y get",
+      "VOLT Y?",
+      "volt Y?",
+      "VOLTAGE Y?",
+      "voltage Y?",
+      "YV 1",
+      "yv 1",
+      "VY 1",
+      "vY 1",
+      "SET Y 1",
+      "set Y 1",
+      "Y SET 1",
+      "Y set 1",
+      "VOLT Y 1",
+      "volt Y 1",
+      "VOLTAGE Y 1",
+      "voltage Y 1",
+      "YMAX?",
+      "ymax?",
+      "MAX Y?",
+      "max Y?",
+      "YMIN?",
+      "ymin?",
+      "MIN Y?",
+      "min Y?",
+      "ZV?",
+      "zv?",
+      "VZ?",
+      "vZ?",
+      "GET Z",
+      "get Z",
+      "Z GET",
+      "Z get",
+      "VOLT Z?",
+      "volt Z?",
+      "VOLTAGE Z?",
+      "voltage Z?",
+      "ZV 1",
+      "zv 1",
+      "VZ 1",
+      "vZ 1",
+      "SET Z 1",
+      "set Z 1",
+      "Z SET 1",
+      "Z set 1",
+      "VOLT Z 1",
+      "volt Z 1",
+      "VOLTAGE Z 1",
+      "voltage Z 1",
+      "ZMAX?",
+      "zmax?",
+      "MAX Z?",
+      "max Z?",
+      "ZMIN?",
+      "zmin?",
+      "MIN Z?",
+      "min Z?",
+      "VOLT?",
+      "volt?",
+      "V?",
+      "v?",
+      "VOLTAGE?",
+      "voltage?",
+      "ALL?",
+      "all?",
+      "LIMIT?",
+      "limit?",
+      "MAX?",
+      "max?",
+      "MIN?",
+      "min?",
+      "RANGE?",
+      "range?",
+      "SCAN?",
+      "scan?",
+      "SWEEP?",
+      "sweep?",
+      "SCAN ON",
+      "scan on",
+      "SCAN OFF",
+      "scan off",
+      "SWEEP ON",
+      "sweep on",
+      "SWEEP OFF",
+      "sweep off",
+      "ENABLE?",
+      "enable?",
+      "DISABLE?",
+      "disable?",
+      "SCANVOLT?",
+      "scanvolt?",
+      "SCANV?",
+      "scanv?",
+      "SWEEPVOLT?",
+      "sweepvolt?",
+      "SWEEPV?",
+      "sweepv?"
+    ],
+    "failed_commands": [],
+    "discoveries": {
+      "identification": [
+        {
+          "command": "*IDN?",
+          "response": "*idn?\r!"
+        },
+        {
+          "command": "ID?",
+          "response": "id?\r*     \r\r\rModel MDT693A Piezo Control Module\rFirmware Version: 3.01\rVoltage Range: 0V to 150V\rThorlabs, Inc. Newton, NJ 07860\rwww.thorlabs.com"
+        },
+        {
+          "command": "VER?",
+          "response": "ver?\r!\u0000"
+        },
+        {
+          "command": "VERSION?",
+          "response": "version?\r!"
+        },
+        {
+          "command": "info?",
+          "response": "info?\r*     \r\r\rModel MDT693A Piezo Control Module\rFirmware Version: 3.01\rVoltage Range: 0V to 150V\rThorlabs, Inc. Newton, NJ 07860\rwww.thorlabs.com"
+        },
+        {
+          "command": "model?",
+          "response": "model?\r!\u0000"
+        },
+        {
+          "command": "serial?",
+          "response": "serial?\r!\u0000"
+        },
+        {
+          "command": "?",
+          "response": "?\r!"
+        },
+        {
+          "command": "help",
+          "response": "help\r!\u0000"
+        },
+        {
+          "command": "HELP?",
+          "response": "help?\r!\u0000"
+        },
+        {
+          "command": "status?",
+          "response": "status?\r!"
+        },
+        {
+          "command": "STATUS?",
+          "response": "status?\r!\u0000"
+        }
+      ],
+      "voltage_control": [
+        {
+          "command": "XV?",
+          "response": "xv?\r!"
+        },
+        {
+          "command": "xv?",
+          "response": "xv?\r!"
+        },
+        {
+          "command": "VX?",
+          "response": "vx?\r!\u0000"
+        },
+        {
+          "command": "vX?",
+          "response": "vx?\r!\u0000"
+        },
+        {
+          "command": "GET X",
+          "response": "get x\r!"
+        },
+        {
+          "command": "get X",
+          "response": "get x\r!"
+        },
+        {
+          "command": "X GET",
+          "response": "x get\r!"
+        },
+        {
+          "command": "X get",
+          "response": "x get\r!"
+        },
+        {
+          "command": "VOLT X?",
+          "response": "volt x?\r!"
+        },
+        {
+          "command": "volt X?",
+          "response": "volt x?\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE X?",
+          "response": "voltage x?\r!\u0000"
+        },
+        {
+          "command": "voltage X?",
+          "response": "voltage x?\r!\u0000"
+        },
+        {
+          "command": "XV 1",
+          "response": "xv 1\r!\u0000"
+        },
+        {
+          "command": "xv 1",
+          "response": "xv 1\r!\u0000"
+        },
+        {
+          "command": "VX 1",
+          "response": "vx 1\r!\u0000"
+        },
+        {
+          "command": "vX 1",
+          "response": "vx 1\r!\u0000"
+        },
+        {
+          "command": "SET X 1",
+          "response": "set x 1\r!"
+        },
+        {
+          "command": "set X 1",
+          "response": "set x 1\r!\u0000"
+        },
+        {
+          "command": "X SET 1",
+          "response": "x set 1\r!"
+        },
+        {
+          "command": "X set 1",
+          "response": "x set 1\r!"
+        },
+        {
+          "command": "VOLT X 1",
+          "response": "volt x 1\r!\u0000"
+        },
+        {
+          "command": "volt X 1",
+          "response": "volt x 1\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE X 1",
+          "response": "voltage x 1\r!\u0000"
+        },
+        {
+          "command": "voltage X 1",
+          "response": "voltage x 1\r!"
+        },
+        {
+          "command": "XMAX?",
+          "response": "xmax?\r!"
+        },
+        {
+          "command": "xmax?",
+          "response": "xmax?\r!"
+        },
+        {
+          "command": "MAX X?",
+          "response": "max x?\r!"
+        },
+        {
+          "command": "max X?",
+          "response": "max x?\r!\u0000"
+        },
+        {
+          "command": "XMIN?",
+          "response": "xmin?\r!"
+        },
+        {
+          "command": "xmin?",
+          "response": "xmin?\r!\u0000"
+        },
+        {
+          "command": "MIN X?",
+          "response": "min x?\r!"
+        },
+        {
+          "command": "min X?",
+          "response": "min x?\r!\u0000"
+        },
+        {
+          "command": "YV?",
+          "response": "yv?\r!"
+        },
+        {
+          "command": "yv?",
+          "response": "yv?\r!\u0000"
+        },
+        {
+          "command": "VY?",
+          "response": "vy?\r!\u0000"
+        },
+        {
+          "command": "vY?",
+          "response": "vy?\r!\u0000"
+        },
+        {
+          "command": "GET Y",
+          "response": "get y\r!"
+        },
+        {
+          "command": "get Y",
+          "response": "get y\r!"
+        },
+        {
+          "command": "Y GET",
+          "response": "y get\r!"
+        },
+        {
+          "command": "Y get",
+          "response": "y get\r!"
+        },
+        {
+          "command": "VOLT Y?",
+          "response": "volt y?\r!\u0000"
+        },
+        {
+          "command": "volt Y?",
+          "response": "volt y?\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE Y?",
+          "response": "voltage y?\r!\u0000"
+        },
+        {
+          "command": "voltage Y?",
+          "response": "voltage y?\r!\u0000"
+        },
+        {
+          "command": "YV 1",
+          "response": "yv 1\r!\u0000"
+        },
+        {
+          "command": "yv 1",
+          "response": "yv 1\r!\u0000"
+        },
+        {
+          "command": "VY 1",
+          "response": "vy 1\r!\u0000"
+        },
+        {
+          "command": "vY 1",
+          "response": "vy 1\r!\u0000"
+        },
+        {
+          "command": "SET Y 1",
+          "response": "set y 1\r!\u0000"
+        },
+        {
+          "command": "set Y 1",
+          "response": "set y 1\r!\u0000"
+        },
+        {
+          "command": "Y SET 1",
+          "response": "y set 1\r!"
+        },
+        {
+          "command": "Y set 1",
+          "response": "y set 1\r!\u0000"
+        },
+        {
+          "command": "VOLT Y 1",
+          "response": "volt y 1\r!\u0000"
+        },
+        {
+          "command": "volt Y 1",
+          "response": "volt y 1\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE Y 1",
+          "response": "voltage y 1\r!"
+        },
+        {
+          "command": "voltage Y 1",
+          "response": "voltage y 1\r!\u0000"
+        },
+        {
+          "command": "YMAX?",
+          "response": "ymax?\r!"
+        },
+        {
+          "command": "ymax?",
+          "response": "ymax?\r!"
+        },
+        {
+          "command": "MAX Y?",
+          "response": "max y?\r!\u0000"
+        },
+        {
+          "command": "max Y?",
+          "response": "max y?\r!\u0000"
+        },
+        {
+          "command": "YMIN?",
+          "response": "ymin?\r!"
+        },
+        {
+          "command": "ymin?",
+          "response": "ymin?\r!"
+        },
+        {
+          "command": "MIN Y?",
+          "response": "min y?\r!\u0000"
+        },
+        {
+          "command": "min Y?",
+          "response": "min y?\r!\u0000"
+        },
+        {
+          "command": "ZV?",
+          "response": "zv?\r!\u0000"
+        },
+        {
+          "command": "zv?",
+          "response": "zv?\r!\u0000"
+        },
+        {
+          "command": "VZ?",
+          "response": "vz?\r!\u0000"
+        },
+        {
+          "command": "vZ?",
+          "response": "vz?\r!\u0000"
+        },
+        {
+          "command": "GET Z",
+          "response": "get z\r!"
+        },
+        {
+          "command": "get Z",
+          "response": "get z\r!"
+        },
+        {
+          "command": "Z GET",
+          "response": "z get\r!"
+        },
+        {
+          "command": "Z get",
+          "response": "z get\r!"
+        },
+        {
+          "command": "VOLT Z?",
+          "response": "volt z?\r!\u0000"
+        },
+        {
+          "command": "volt Z?",
+          "response": "volt z?\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE Z?",
+          "response": "voltage z?\r!\u0000"
+        },
+        {
+          "command": "voltage Z?",
+          "response": "voltage z?\r!\u0000"
+        },
+        {
+          "command": "ZV 1",
+          "response": "zv 1\r!\u0000"
+        },
+        {
+          "command": "zv 1",
+          "response": "zv 1\r!\u0000"
+        },
+        {
+          "command": "VZ 1",
+          "response": "vz 1\r!\u0000"
+        },
+        {
+          "command": "vZ 1",
+          "response": "vz 1\r!\u0000"
+        },
+        {
+          "command": "SET Z 1",
+          "response": "set z 1\r!\u0000"
+        },
+        {
+          "command": "set Z 1",
+          "response": "set z 1\r!\u0000"
+        },
+        {
+          "command": "Z SET 1",
+          "response": "z set 1\r!\u0000"
+        },
+        {
+          "command": "Z set 1",
+          "response": "z set 1\r!\u0000"
+        },
+        {
+          "command": "VOLT Z 1",
+          "response": "volt z 1\r!"
+        },
+        {
+          "command": "volt Z 1",
+          "response": "volt z 1\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE Z 1",
+          "response": "voltage z 1\r!\u0000"
+        },
+        {
+          "command": "voltage Z 1",
+          "response": "voltage z 1\r!\u0000"
+        },
+        {
+          "command": "ZMAX?",
+          "response": "zmax?\r!\u0000"
+        },
+        {
+          "command": "zmax?",
+          "response": "zmax?\r!\u0000"
+        },
+        {
+          "command": "MAX Z?",
+          "response": "max z?\r!\u0000"
+        },
+        {
+          "command": "max Z?",
+          "response": "max z?\r!\u0000"
+        },
+        {
+          "command": "ZMIN?",
+          "response": "zmin?\r!"
+        },
+        {
+          "command": "zmin?",
+          "response": "zmin?\r!"
+        },
+        {
+          "command": "MIN Z?",
+          "response": "min z?\r!\u0000"
+        },
+        {
+          "command": "min Z?",
+          "response": "min z?\r!\u0000"
+        },
+        {
+          "command": "VOLT?",
+          "response": "volt?\r!\u0000"
+        },
+        {
+          "command": "volt?",
+          "response": "volt?\r!\u0000"
+        },
+        {
+          "command": "V?",
+          "response": "v?\r!\u0000"
+        },
+        {
+          "command": "v?",
+          "response": "v?\r!\u0000"
+        },
+        {
+          "command": "VOLTAGE?",
+          "response": "voltage?\r!"
+        },
+        {
+          "command": "voltage?",
+          "response": "voltage?\r!\u0000"
+        },
+        {
+          "command": "ALL?",
+          "response": "all?\r!"
+        },
+        {
+          "command": "all?",
+          "response": "all?\r!"
+        },
+        {
+          "command": "LIMIT?",
+          "response": "limit?\r!\u0000"
+        },
+        {
+          "command": "limit?",
+          "response": "limit?\r!\u0000"
+        },
+        {
+          "command": "MAX?",
+          "response": "max?\r!\u0000"
+        },
+        {
+          "command": "max?",
+          "response": "max?\r!\u0000"
+        },
+        {
+          "command": "MIN?",
+          "response": "min?\r!\u0000"
+        },
+        {
+          "command": "min?",
+          "response": "min?\r!\u0000"
+        },
+        {
+          "command": "RANGE?",
+          "response": "range?\r!\u0000"
+        },
+        {
+          "command": "range?",
+          "response": "range?\r!\u0000"
+        }
+      ],
+      "scan_control": [
+        {
+          "command": "SCAN?",
+          "response": "scan?\r!\u0000"
+        },
+        {
+          "command": "scan?",
+          "response": "scan?\r!\u0000"
+        },
+        {
+          "command": "SWEEP?",
+          "response": "sweep?\r!\u0000"
+        },
+        {
+          "command": "sweep?",
+          "response": "sweep?\r!\u0000"
+        },
+        {
+          "command": "SCAN ON",
+          "response": "scan on\r!"
+        },
+        {
+          "command": "scan on",
+          "response": "scan on\r!"
+        },
+        {
+          "command": "SCAN OFF",
+          "response": "scan off\r!"
+        },
+        {
+          "command": "scan off",
+          "response": "scan off\r!\u0000"
+        },
+        {
+          "command": "SWEEP ON",
+          "response": "sweep on\r!\u0000"
+        },
+        {
+          "command": "sweep on",
+          "response": "sweep on\r!\u0000"
+        },
+        {
+          "command": "SWEEP OFF",
+          "response": "sweep off\r!\u0000"
+        },
+        {
+          "command": "sweep off",
+          "response": "sweep off\r!\u0000"
+        },
+        {
+          "command": "ENABLE?",
+          "response": "enable?\r!\u0000"
+        },
+        {
+          "command": "enable?",
+          "response": "enable?\r!"
+        },
+        {
+          "command": "DISABLE?",
+          "response": "disable?\r*Piezo Device: [MDT693A]"
+        },
+        {
+          "command": "disable?",
+          "response": "disable?\r*Piezo Device: [MDT693A]"
+        },
+        {
+          "command": "SCANVOLT?",
+          "response": "scanvolt?\r!"
+        },
+        {
+          "command": "scanvolt?",
+          "response": "scanvolt?\r!"
+        },
+        {
+          "command": "SCANV?",
+          "response": "scanv?\r!\u0000"
+        },
+        {
+          "command": "scanv?",
+          "response": "scanv?\r!\u0000"
+        },
+        {
+          "command": "SWEEPVOLT?",
+          "response": "sweepvolt?\r!\u0000"
+        },
+        {
+          "command": "sweepvolt?",
+          "response": "sweepvolt?\r!\u0000"
+        },
+        {
+          "command": "SWEEPV?",
+          "response": "sweepv?\r!\u0000"
+        },
+        {
+          "command": "sweepv?",
+          "response": "sweepv?\r!\u0000"
+        }
+      ]
+    },
+    "baud_rate": 115200,
+    "status": "test_complete"
+  },
+  {
+    "port": "COM9",
+    "model": "MDT693B",
+    "serial_no": "150226175403",
+    "connection_status": "connected",
+    "successful_commands": [
+      "*IDN?",
+      "ID?",
+      "VER?",
+      "VERSION?",
+      "info?",
+      "model?",
+      "serial?",
+      "?",
+      "help",
+      "HELP?",
+      "status?",
+      "STATUS?",
+      "XV?",
+      "xv?",
+      "VX?",
+      "vX?",
+      "GET X",
+      "get X",
+      "X GET",
+      "X get",
+      "VOLT X?",
+      "volt X?",
+      "VOLTAGE X?",
+      "voltage X?",
+      "XV 1",
+      "xv 1",
+      "VX 1",
+      "vX 1",
+      "SET X 1",
+      "set X 1",
+      "X SET 1",
+      "X set 1",
+      "VOLT X 1",
+      "volt X 1",
+      "VOLTAGE X 1",
+      "voltage X 1",
+      "XMAX?",
+      "xmax?",
+      "MAX X?",
+      "max X?",
+      "XMIN?",
+      "xmin?",
+      "MIN X?",
+      "min X?",
+      "YV?",
+      "yv?",
+      "VY?",
+      "vY?",
+      "GET Y",
+      "get Y",
+      "Y GET",
+      "Y get",
+      "VOLT Y?",
+      "volt Y?",
+      "VOLTAGE Y?",
+      "voltage Y?",
+      "YV 1",
+      "yv 1",
+      "VY 1",
+      "vY 1",
+      "SET Y 1",
+      "set Y 1",
+      "Y SET 1",
+      "Y set 1",
+      "VOLT Y 1",
+      "volt Y 1",
+      "VOLTAGE Y 1",
+      "voltage Y 1",
+      "YMAX?",
+      "ymax?",
+      "MAX Y?",
+      "max Y?",
+      "YMIN?",
+      "ymin?",
+      "MIN Y?",
+      "min Y?",
+      "ZV?",
+      "zv?",
+      "VZ?",
+      "vZ?",
+      "GET Z",
+      "get Z",
+      "Z GET",
+      "Z get",
+      "VOLT Z?",
+      "volt Z?",
+      "VOLTAGE Z?",
+      "voltage Z?",
+      "ZV 1",
+      "zv 1",
+      "VZ 1",
+      "vZ 1",
+      "SET Z 1",
+      "set Z 1",
+      "Z SET 1",
+      "Z set 1",
+      "VOLT Z 1",
+      "volt Z 1",
+      "VOLTAGE Z 1",
+      "voltage Z 1",
+      "ZMAX?",
+      "zmax?",
+      "MAX Z?",
+      "max Z?",
+      "ZMIN?",
+      "zmin?",
+      "MIN Z?",
+      "min Z?",
+      "VOLT?",
+      "volt?",
+      "V?",
+      "v?",
+      "VOLTAGE?",
+      "voltage?",
+      "ALL?",
+      "all?",
+      "LIMIT?",
+      "limit?",
+      "MAX?",
+      "max?",
+      "MIN?",
+      "min?",
+      "RANGE?",
+      "range?",
+      "SCAN?",
+      "scan?",
+      "SWEEP?",
+      "sweep?",
+      "SCAN ON",
+      "scan on",
+      "SCAN OFF",
+      "scan off",
+      "SWEEP ON",
+      "sweep on",
+      "SWEEP OFF",
+      "sweep off",
+      "ENABLE?",
+      "enable?",
+      "DISABLE?",
+      "disable?",
+      "SCANVOLT?",
+      "scanvolt?",
+      "SCANV?",
+      "scanv?",
+      "SWEEPVOLT?",
+      "sweepvolt?",
+      "SWEEPV?",
+      "sweepv?"
+    ],
+    "failed_commands": [],
+    "discoveries": {
+      "identification": [
+        {
+          "command": "*IDN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ID?",
+          "response": "Model MDT693B Piezo Control Module\rFirmware Version: 1.10\rVoltage Range: 0V to 150V\rSerial#:150226175403\rFriendly Name:MDT693B\rThorlabs, Inc. Newton, NJ 07860\rwww.thorlabs.com\r\r>"
+        },
+        {
+          "command": "VER?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VERSION?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "info?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "model?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "serial?",
+          "response": "150226175403\r>"
+        },
+        {
+          "command": "?",
+          "response": "?\t\tGets list of all available commands.\rID?\t\tGets the product header and firmware version.\rRESTORE\t\tRestores all settings to their default values.\rECHO?\t\tGets echo status.\rECHO=\t\tSets echo status, (0=Off, 1=On) When on all commands are echoed back.\rVLIMIT?\t\tGets output voltage limit switch setting (0=75V, 1=100V, 2=150V).\rINTENSITY?\tGets display intensity (0-15).\rINTENSITY=\tSets display intensity (0-15).\rALLVOLTAGE=\tSets all outputs to desired voltage.\rMSENABLE?\tGets the Master Scan enable state (0=Off, 1=On).\rMSENABLE=\tSets the Master Scan enable state (0=Off, 1=On).\rMSVOLTAGE?\tGets the Master Scan voltage.\rMSVOLTAGE=\tSets the Master Scan voltage that is added to the x,y and z axis voltages.\rXVOLTAGE?\tGets the output voltage for the x axis.\rXVOLTAGE=\tSets the output voltage for the x axis.\rYVOLTAGE?\tGets the output voltage for the y axis.\rYVOLTAGE=\tSets the output voltage for the y axis.\rZVOLTAGE?\tGets the output voltage for the z axis.\rZVOLTAGE=\tSets the output voltage for the z axis.\rXYZVOLTAGE?\tGets the output voltages for x,y and z axis.\rXYZVOLTAGE=\tSets the output voltages for x,y and z axis.\rXMIN?\t\tGets the minimum output voltage limit for the x axis.\rXMIN=\t\tSets the minimum output voltage limit for the x axis.\rYMIN?\t\tGets the minimum output voltage limit for the y axis.\rYMIN=\t\tSets the minimum output voltage limit for the y axis.\rZMIN?\t\tGets the minimum output voltage limit for the z axis.\rZMIN=\t\tSets the minimum output voltage limit for the z axis.\rSYSMIN?\t\tGets the minimum output voltage limit for the system.\rSYSMIN=\t\tSets the minimum output voltage limit for the system.\rXMAX?\t\tGets the maximum output voltage limit for the x axis.\rXMAX=\t\tSets the maximum output voltage limit for the x axis.\rYMAX?\t\tGets the maximum output voltage limit for the y axis.\rYMAX=\t\tSets the maximum output voltage limit for the y axis.\rZMAX?\t\tGets the maximum output voltage limit for the z axis.\rZMAX=\t\tSets the maximum output voltage limit for the z axis.\rSYSMAX?\t\tGets the maximum output voltage limit for the system.\rSYSMAX=\t\tSets the maximum output voltage limit for the system.\rDACSTEP?\tGets DAC step size used with up/down arrow keys. (1-5000).\rDACSTEP=\tSets DAC step size used with up/down arrow keys. (1-5000).\rUp Arrow\tIncrease selected channel by the set step size.\rDown Arrow\tDecrease selected channel by the set step size.\rRight Arrow\tSelect next channel.\rLeft Arrow\tSelect previous channel.\rFRIENDLY?\tGets friendly name.\rFRIENDLY=\tSet friendly name.\rSERIAL?\t\tGets serial number.\rCM?\t\tGets MDT693A compatibility mode (0=Off, 1=On).\rCM=\t\tSets MDT693A compatibility mode (0=Off, 1=On).\rROTARYMODE?\tGets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rROTARYMODE=\tSets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rPUSHDISABLE?\tGets push to adjust disabled. (0 = Enabled, 1 = Disabled)\rPUSHDISABLE=\tSets push to adjust disabled. (0 = Enabled, 1 = Disabled)\r>"
+        },
+        {
+          "command": "help",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "HELP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "status?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "STATUS?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "voltage_control": [
+        {
+          "command": "XV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "GET X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "get X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X GET",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X get",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XV 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SET X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "set X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X SET 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X set 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMAX?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "xmax?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "MAX X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMIN?",
+          "response": "0\r>"
+        },
+        {
+          "command": "xmin?",
+          "response": "0\r>"
+        },
+        {
+          "command": "MIN X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "YV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "yv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VY?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vY?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "GET Y",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "get Y",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Y GET",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Y get",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "YV 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "yv 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VY 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vY 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SET Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "set Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Y SET 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Y set 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage Y 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "YMAX?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "ymax?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "MAX Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "YMIN?",
+          "response": "0\r>"
+        },
+        {
+          "command": "ymin?",
+          "response": "0\r>"
+        },
+        {
+          "command": "MIN Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min Y?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ZV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "zv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VZ?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vZ?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "GET Z",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "get Z",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Z GET",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Z get",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ZV 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "zv 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VZ 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vZ 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SET Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "set Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Z SET 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "Z set 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage Z 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ZMAX?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "zmax?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "MAX Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ZMIN?",
+          "response": "0\r>"
+        },
+        {
+          "command": "zmin?",
+          "response": "0\r>"
+        },
+        {
+          "command": "MIN Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min Z?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "V?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "v?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ALL?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "all?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "LIMIT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "limit?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MAX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MIN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "RANGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "range?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "scan_control": [
+        {
+          "command": "SCAN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ENABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "enable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "DISABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "disable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepv?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ]
+    },
+    "baud_rate": 115200,
+    "status": "test_complete"
+  },
+  {
+    "port": "COM13",
+    "model": "MDT694B",
+    "serial_no": "140317-02",
+    "connection_status": "connected",
+    "successful_commands": [
+      "*IDN?",
+      "ID?",
+      "VER?",
+      "VERSION?",
+      "info?",
+      "model?",
+      "serial?",
+      "?",
+      "help",
+      "HELP?",
+      "status?",
+      "STATUS?",
+      "XV?",
+      "xv?",
+      "VX?",
+      "vX?",
+      "GET X",
+      "get X",
+      "X GET",
+      "X get",
+      "VOLT X?",
+      "volt X?",
+      "VOLTAGE X?",
+      "voltage X?",
+      "XV 1",
+      "xv 1",
+      "VX 1",
+      "vX 1",
+      "SET X 1",
+      "set X 1",
+      "X SET 1",
+      "X set 1",
+      "VOLT X 1",
+      "volt X 1",
+      "VOLTAGE X 1",
+      "voltage X 1",
+      "XMAX?",
+      "xmax?",
+      "MAX X?",
+      "max X?",
+      "XMIN?",
+      "xmin?",
+      "MIN X?",
+      "min X?",
+      "VOLT?",
+      "volt?",
+      "V?",
+      "v?",
+      "VOLTAGE?",
+      "voltage?",
+      "ALL?",
+      "all?",
+      "LIMIT?",
+      "limit?",
+      "MAX?",
+      "max?",
+      "MIN?",
+      "min?",
+      "RANGE?",
+      "range?",
+      "SCAN?",
+      "scan?",
+      "SWEEP?",
+      "sweep?",
+      "SCAN ON",
+      "scan on",
+      "SCAN OFF",
+      "scan off",
+      "SWEEP ON",
+      "sweep on",
+      "SWEEP OFF",
+      "sweep off",
+      "ENABLE?",
+      "enable?",
+      "DISABLE?",
+      "disable?",
+      "SCANVOLT?",
+      "scanvolt?",
+      "SCANV?",
+      "scanv?",
+      "SWEEPVOLT?",
+      "sweepvolt?",
+      "SWEEPV?",
+      "sweepv?"
+    ],
+    "failed_commands": [],
+    "discoveries": {
+      "identification": [
+        {
+          "command": "*IDN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ID?",
+          "response": "Model MDT694B Piezo Control Module\rFirmware Version: 1.10\rVoltage Range: 0V to 150V\rSerial#:140317-02\rFriendly Name:MDT694B\rThorlabs, Inc. Newton, NJ 07860\rwww.thorlabs.com\r\r>"
+        },
+        {
+          "command": "VER?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VERSION?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "info?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "model?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "serial?",
+          "response": "140317-02\r>"
+        },
+        {
+          "command": "?",
+          "response": "?\t\tGets list of all available commands.\rID?\t\tGets the product header and firmware version.\rRESTORE\t\tRestores all settings to their default values.\rECHO?\t\tGets echo status.\rECHO=\t\tSets echo status, (0=Off, 1=On) When on all commands are echoed back.\rVLIMIT?\t\tGets output voltage limit switch setting (0=75V, 1=100V, 2=150V).\rINTENSITY?\tGets display intensity (0-15).\rINTENSITY=\tSets display intensity (0-15).\rXVOLTAGE?\tGets the output voltage for the x axis.\rXVOLTAGE=\tSets the output voltage for the x axis.\rXMIN?\t\tGets the minimum output voltage limit for the x axis.\rXMIN=\t\tSets the minimum output voltage limit for the x axis.\rSYSMIN?\t\tGets the minimum output voltage limit for the system.\rSYSMIN=\t\tSets the minimum output voltage limit for the system.\rXMAX?\t\tGets the maximum output voltage limit for the x axis.\rXMAX=\t\tSets the maximum output voltage limit for the x axis.\rSYSMAX?\t\tGets the maximum output voltage limit for the system.\rSYSMAX=\t\tSets the maximum output voltage limit for the system.\rDACSTEP?\tGets channel step size used with up/down arrow keys. (1-5000).\rDACSTEP=\tSets channel step size used with up/down arrow keys. (1-5000).\rUp Arrow\tIncrease selected channel by the set step size.\rDown Arrow\tDecrease selected channel by the set step size.\rFRIENDLY?\tGets friendly name.\rFRIENDLY=\tSet friendly name.\rSERIAL?\t\tGets serial number.\rCM?\t\tGets MDT694A compatibility mode (0=Off, 1=On).\rCM=\t\tSets MDT694A compatibility mode (0=Off, 1=On).\rROTARYMODE?\tGets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rROTARYMODE=\tSets rotary mode. (0 = Default, 1 = 10 turn pot, 2 = fine)\rPUSHDISABLE?\tGets push to adjust disabled. (0 = Enabled, 1 = Disabled)\rPUSHDISABLE=\tSets push to adjust disabled. (0 = Enabled, 1 = Disabled)\r>"
+        },
+        {
+          "command": "help",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "HELP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "status?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "STATUS?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "voltage_control": [
+        {
+          "command": "XV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "GET X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "get X",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X GET",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X get",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XV 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "xv 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "vX 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SET X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "set X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X SET 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "X set 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage X 1",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMAX?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "xmax?",
+          "response": "150.50\r>"
+        },
+        {
+          "command": "MAX X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "XMIN?",
+          "response": "0\r>"
+        },
+        {
+          "command": "xmin?",
+          "response": "0\r>"
+        },
+        {
+          "command": "MIN X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min X?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "volt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "V?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "v?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "VOLTAGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "voltage?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ALL?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "all?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "LIMIT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "limit?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MAX?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "max?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "MIN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "min?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "RANGE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "range?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ],
+      "scan_control": [
+        {
+          "command": "SCAN?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCAN OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scan off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP ON",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep on",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEP OFF",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweep off",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "ENABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "enable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "DISABLE?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "disable?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SCANV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "scanv?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPVOLT?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepvolt?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "SWEEPV?",
+          "response": "CMD_NOT_DEFINED>"
+        },
+        {
+          "command": "sweepv?",
+          "response": "CMD_NOT_DEFINED>"
+        }
+      ]
+    },
+    "baud_rate": 115200,
+    "status": "test_complete"
+  }
+]
