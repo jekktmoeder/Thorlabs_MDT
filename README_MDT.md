@@ -13,36 +13,32 @@ Complete MDT piezo device control system following your existing motor controlle
 - **COM13**: MDT694B (1-channel X-axis, SN: "140317-02")
 
 ### Working Command Protocol
-- **Communication**: 115200 baud, 8N1, CR+LF terminated
-- **Response format**: Commands return data followed by '>' prompt (693B/694B) or '!' (693A)
+- **Communication**: 115200 baud, 8N1
+- **Response format**: Commands return data followed by '>' prompt (693B/694B), '!' or '*' (693A), or CR/LF
 - **Voltage range**: 0-150.0V for all models (software-enforced)
+- **Command format**: Controller uses short-form commands for compatibility with all devices
 
 #### Core Commands (All Models)
 ```
 ID?            → Device identification and firmware info
 serial?        → Device serial number
 ?              → Complete help/command list
-XVOLTAGE?      → Get X-axis voltage
-XVOLTAGE=n     → Set X-axis voltage to n volts
-XMIN?/XMAX?    → Get X-axis voltage limits
+XR?            → Get X-axis voltage (short-form, with XVOLTAGE? fallback)
+XV10.5         → Set X-axis to 10.5V (short-form: XVvalue, no = or space)
+XL? / XH?      → Get X-axis min/max voltage limits
+XL0 / XH150    → Set X-axis min/max voltage limits
 ```
 
 #### 3-Channel Commands (MDT693A/B Only)
 ```
-YVOLTAGE?      → Get Y-axis voltage
-YVOLTAGE=n     → Set Y-axis voltage
-ZVOLTAGE?      → Get Z-axis voltage  
-ZVOLTAGE=n     → Set Z-axis voltage
-XYZVOLTAGE?    → Get all three voltages (693B only)
-XYZVOLTAGE=    → Set all three voltages (693B only)
+YR? / ZR?      → Get Y/Z-axis voltage (short-form)
+YV25 / ZV50    → Set Y/Z-axis voltage (short-form)
+YL? / YH?      → Y-axis limits (693B only)
+ZL? / ZH?      → Z-axis limits (693B only)
+XYZVOLTAGE?    → Get all three voltages (693B only, combined query)
 ```
 
-#### Advanced Commands (693B/694B)
-```
-ALLVOLTAGE=n   → Set all outputs to same voltage (693B only)
-YMIN?/YMAX?    → Y-axis limits (693B only)
-ZMIN?/ZMAX?    → Z-axis limits (693B only)
-```
+**Note**: Controller implements short-form commands (e.g., `XV10`) for maximum compatibility with legacy devices. Long-form commands (e.g., `XVOLTAGE=10`) are supported as fallback but not primarily used.
 
 ## Controller Architecture
 
@@ -50,7 +46,7 @@ ZMIN?/ZMAX?    → Z-axis limits (693B only)
 Basic serial communication and command interface:
 
 ```python
-from mdt_controller import MDTController
+from mdt import MDTController
 
 # Connect to specific device
 controller = MDTController(port="COM9", model="MDT693B")
@@ -72,7 +68,7 @@ with MDTController("COM9") as controller:
 User-friendly interface with safety features:
 
 ```python  
-from mdt_controller import HighLevelMDTController
+from mdt import HighLevelMDTController
 
 # Auto-discover and connect
 with HighLevelMDTController() as mdt:
@@ -107,30 +103,37 @@ with HighLevelMDTController() as mdt:
 - Timeout protection on commands
 - Graceful disconnection
 
-## Files Created
+## Project Structure
 
-### Core System
-- `find_MDT_devices.py` - Device discovery and enumeration
-- `mdt_controller.py` - Main controller classes (low and high level)
-- `mdt_devices.json` - Device metadata and configuration
+### Core Package (`src/mdt/`)
+- `controller.py` - Main controller classes (MDTController and HighLevelMDTController)
+- `gui.py` - PyQt5 GUI for multi-device control
+- `discovery.py` - Device discovery and COM port enumeration
+- `utils.py` - Utility functions
+- `MDT_COMMAND_LIB.py` / `MDT_COMMAND_LIB_LOCAL.py` - SDK wrapper modules
+- `__init__.py` - Package API exports
 
-### Testing & Discovery  
-- `test_mdt_serial_commands.py` - Command protocol discovery
-- `test_mdt_working_commands.py` - Verify working commands
-- `test_mdt_controllers.py` - Comprehensive controller testing
-- `simple_mdt_test.py` - Basic connection testing
+### Compatibility Wrappers (Repository Root)
+- `MDTControlGUI.py` - GUI launcher (thin wrapper for backwards compatibility)
+- `find_MDT_devices.py` - Device discovery script (wrapper)
+- `connect_mdt.py` - Connection utilities (wrapper)
 
-### Results & Documentation
-- `mdt_command_discovery_results.json` - Complete command mapping
-- `mdt_working_commands_results.json` - Verified working commands
-- `README_MDT.md` - This documentation
+### Configuration & Data
+- `mdt_devices.json` - Discovered device metadata
+- `.mdt_dlls/` - Vendor DLLs and LabVIEW library files
+- `requirements.txt` - Python dependencies (pyserial, PyQt5)
+
+### Documentation
+- `README.md` - Main documentation with quick start
+- `README_MDT.md` - This detailed technical documentation
+- `MDT693A-Manual.pdf` - Device manual
 
 ## Usage Examples
 
 ### Quick Start
 ```python
 # Simple voltage control
-from mdt_controller import HighLevelMDTController
+from mdt import HighLevelMDTController
 
 with HighLevelMDTController() as mdt:
     if mdt.is_connected():
@@ -160,7 +163,7 @@ with HighLevelMDTController(port="COM9") as mdt:  # MDT693B
 ### Laboratory Integration
 ```python
 # Integrate with existing lab control
-from mdt_controller import create_mdt_controller
+from mdt import create_mdt_controller
 
 # Auto-discover device
 mdt = create_mdt_controller(high_level=True)
@@ -202,9 +205,10 @@ The interface is designed to be familiar to users of your motor control system w
 
 ### MDT693A (COM10) - Legacy Protocol
 - Older firmware with different response format
-- Echoes commands with '!' terminator  
-- Basic voltage control working
-- May need special handling for some advanced features
+- Echoes commands (often returns command as acknowledgement instead of numeric value)
+- Uses '!', '*', or CR/LF terminators
+- Controller applies relaxed verification (±1.0V tolerance) and accepts echo as acknowledgement
+- Special handling in code: attempts to disable echo on connect, treats echo response as success
 
 ### MDT693B (COM9) - Modern 3-Channel
 - Full command set support
@@ -218,8 +222,26 @@ The interface is designed to be familiar to users of your motor control system w
 - Full safety and limit features
 - Ideal for single-axis experiments
 
-## Next Steps
+## PyQt5 GUI
 
-The system is ready for integration into your lab control framework. The controller classes provide the same interface patterns as your existing motor controllers, making integration straightforward.
+A complete multi-device GUI is implemented in `src/mdt/gui.py` and can be launched via `MDTControlGUI.py`:
 
-For GUI development, you can now create `MDTControlGUI.py` using the same patterns as `MotorControlGUI.py`, with the high-level controller providing all the device control capabilities needed.
+**Features:**
+- Auto-discovery and connection to all available MDT devices
+- Per-device tabs for independent control
+- Per-axis sliders and spinboxes (synchronized)
+- Safety toggle with configurable limits (default 100V, device max 150V)
+- Quick-set buttons (Zero, Max, Mid)
+- Live voltage readback
+- Connection status indicators
+
+**Usage:**
+```bash
+python MDTControlGUI.py
+```
+
+The GUI initializes control values from current device state on connect, preventing unintended voltage jumps.
+
+## Integration & Next Steps
+
+The system is ready for integration into lab control frameworks. The controller classes provide consistent interface patterns for programmatic control, while the GUI offers interactive operation. Both low-level (`MDTController`) and high-level (`HighLevelMDTController`) APIs are available depending on whether you need direct serial control or safety-wrapped operations.

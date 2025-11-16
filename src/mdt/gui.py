@@ -18,7 +18,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import QTimer, Qt, pyqtSignal
 from PyQt5.QtGui import QFont
 
-from mdt_controller import HighLevelMDTController, discover_mdt_devices
+from mdt import HighLevelMDTController, discover_mdt_devices
 
 
 class AxisControlWidget(QWidget):
