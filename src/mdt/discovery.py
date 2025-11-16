@@ -14,6 +14,7 @@ import sys
 import re
 import argparse
 import json
+import time
 from typing import List
 
 # ---- pyserial is required for COM enumeration ----
@@ -47,6 +48,16 @@ MDT_KEYWORDS = [
     "mdt694b",
 ]
 
+# ---- Active probe defaults (safe, non-destructive commands) ----
+ID_COMMANDS = [b'XR?\r', b'ID?\r', b'*IDN?\r', b'XR?\n', b'XR?']
+PROBE_BAUD = 115200
+PROBE_TIMEOUT = 0.3
+
+try:
+    import serial
+except Exception:
+    serial = None
+
 def is_mdt_candidate(portinfo) -> bool:
     """
     Return True if any known MDT keywords appear in relevant fields.
@@ -78,10 +89,14 @@ def fmt_vid_pid(p):
 
 def main():
     parser = argparse.ArgumentParser(description="Enumerate COM ports and optionally filter by vendor/manufacturer.")
-    parser.add_argument("--vendors", "-v", help="Comma-separated vendor keywords to filter (case-insensitive). Defaults to 'Thorlabs,Prolific'", default="Thorlabs,Prolific")
+    parser.add_argument("--vendors", "-v", help="Comma-separated vendor keywords to filter (case-insensitive). Defaults to 'Thorlabs'", default="Thorlabs")
     parser.add_argument("--json", help="Output results as JSON", action="store_true")
     parser.add_argument("--out", "-o", help="Output JSON file path (default: mdt_devices.json)", default="mdt_devices.json")
     parser.add_argument("--assign", "-a", help="Assign model by rule. Format: key=value. Key can be COM port (e.g. COM10), manufacturer (Prolific), or VID:PID (067B:23A3). Can be repeated.", action="append", default=[])
+    # Probe enabled by default for convenience; allow disabling with --no-probe
+    parser.add_argument("--probe", dest="probe", action="store_true", help="Actively probe COM ports using MDT-safe serial queries to confirm device identity. (default: enabled)", default=True)
+    parser.add_argument("--no-probe", dest="probe", action="store_false", help="Disable active probing (opposite of --probe).")
+    parser.add_argument("--probe-only-manufacturer", action="store_true", help="When probing, only probe ports whose manufacturer field contains 'Thorlabs'. By default probing checks all COM ports.")
     args = parser.parse_args()
 
     vendor_filters: List[str] = [v.strip().lower() for v in args.vendors.split(",") if v.strip()] if args.vendors else ["thorlabs", "prolific"]
@@ -146,26 +161,73 @@ def main():
                 if key.upper() == str(row.get("Device", "")).upper():
                     model = val
                     break
-        # Priority 4: if it's a Prolific adapter with no model, allow mapping by manufacturer
-        if not model and str(row.get("Manufacturer", "")).lower().find("prolific") != -1:
-            # try to find an assign for 'prolific'
-            for key, val in assigns:
-                if key == "prolific":
-                    model = val
-                    break
-            # If still not assigned, default Prolific adapters to MDT693A
-            if not model:
-                model = "MDT693A"
-
+        # (No default mapping for generic adapters like Prolific.)
         row["Model"] = model
 
-        # Apply vendor filtering if requested
-        if vendor_filters:
-            combined = " ".join([str(row.get(k, "")) for k in ("Manufacturer", "Product", "Desc", "HWID")]).lower()
-            if any(v in combined for v in vendor_filters):
-                rows.append(row)
-        else:
-            rows.append(row)
+        # If active probing was requested, perform a short, safe probe on the port.
+        if args.probe:
+            probe_allowed = True
+            if args.probe_only_manufacturer:
+                probe_allowed = (str(row.get("Manufacturer", "")).lower().find("thorlabs") != -1)
+            if probe_allowed:
+                # Perform a safe serial probe; if pyserial is unavailable, skip.
+                probe_result = {"ProbeAvailable": False}
+                if serial is None:
+                    probe_result["error"] = "pyserial not installed"
+                else:
+                    try:
+                        ser = serial.Serial(port=row.get("Device"), baudrate=PROBE_BAUD, timeout=PROBE_TIMEOUT)
+                        try:
+                            ser.reset_input_buffer()
+                            ser.reset_output_buffer()
+                        except Exception:
+                            pass
+                        best_reply = None
+                        matched = False
+                        for cmd in ID_COMMANDS:
+                            try:
+                                ser.write(cmd)
+                            except Exception:
+                                continue
+                            # short delay and read
+                            try:
+                                time.sleep(0.05)
+                                raw = ser.read(2048)
+                            except Exception:
+                                raw = b''
+                            try:
+                                decoded = raw.decode('ascii', errors='ignore').strip()
+                            except Exception:
+                                decoded = str(raw)
+                            # strip echoed command and prompts
+                            try:
+                                cmd_text = cmd.decode('ascii', errors='ignore').strip()
+                                if cmd_text and decoded.startswith(cmd_text):
+                                    decoded = decoded[len(cmd_text):].strip()
+                            except Exception:
+                                pass
+                            decoded = decoded.strip('\r\n >!*')
+                            if decoded:
+                                best_reply = decoded
+                                up = decoded.upper()
+                                if 'MDT' in up or 'THOR' in up or re.search(r'69[34]', up):
+                                    matched = True
+                                    break
+                                if re.search(r'-?\d+\.\d+', decoded):
+                                    matched = True
+                                    break
+                        try:
+                            ser.close()
+                        except Exception:
+                            pass
+                        probe_result = {"ProbeAvailable": True, "ProbeMatch": bool(matched), "ProbeReply": best_reply}
+                    except Exception as e:
+                        probe_result = {"ProbeAvailable": False, "error": str(e)}
+                # merge probe_result into row
+                row.update(probe_result)
+
+        # Collect all rows first; we'll filter for output after probing.
+        rows.append(row)
 
     # Pretty print
     def w(s, n):
@@ -189,23 +251,40 @@ def main():
     headers_ext = headers + ["MDT_SDK_Model", "Model", "HWID"]
     widths = {h: max(len(h), *(len(str(r.get(h, ""))) for r in rows)) for h in headers_ext}
 
-    # Print rows (or JSON)
+    # If probing was requested, include ports that matched a probe even if
+    # their manufacturer didn't match vendor_filters. Otherwise filter by
+    # vendor_filters (if provided).
+    if args.probe and vendor_filters:
+        def include_row(r):
+            combined = " ".join([str(r.get(k, "")) for k in ("Manufacturer", "Product", "Desc", "HWID")]).lower()
+            if any(v in combined for v in vendor_filters):
+                return True
+            if r.get('ProbeMatch'):
+                return True
+            return False
+        filtered = [r for r in rows if include_row(r)]
+    else:
+        if vendor_filters:
+            filtered = [r for r in rows if any(v in (" ".join([str(r.get(k, "")) for k in ("Manufacturer", "Product", "Desc", "HWID")])).lower() for v in vendor_filters)]
+        else:
+            filtered = rows
+
     if args.json:
-        print(json.dumps(rows, indent=2))
+        print(json.dumps(filtered, indent=2))
     else:
         # Print header
         line = " | ".join(h.ljust(widths[h]) for h in headers_ext)
         print(line)
         print("-" * len(line))
-        for r in rows:
+        for r in filtered:
             print(" | ".join(w(r.get(h, ""), widths[h]).ljust(widths[h]) for h in headers_ext))
 
     # Always write JSON output file with the rows (including Model)
     try:
         out_path = args.out
         with open(out_path, "w", encoding="utf-8") as fh:
-            json.dump(rows, fh, indent=2)
-        print(f"\nSaved {len(rows)} entries to JSON: {out_path}")
+            json.dump(filtered, fh, indent=2)
+        print(f"\nSaved {len(filtered)} entries to JSON: {out_path}")
     except Exception as e:
         print(f"Failed to write JSON output {args.out}: {e}")
 
