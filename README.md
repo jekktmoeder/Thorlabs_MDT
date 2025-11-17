@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./docs/licenses/LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Code Style: Professional](https://img.shields.io/badge/code%20style-professional-brightgreen.svg)](https://github.com/JovanMarkov96/Thorlabs_MDT)
 
 Professional-grade Python library and GUI for controlling Thorlabs MDT piezo voltage controllers (MDT693A, MDT693B, MDT694B). Designed for laboratory automation, research applications, and precision positioning systems.
 
