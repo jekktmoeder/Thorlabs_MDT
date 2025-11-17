@@ -1,0 +1,17 @@
+[
+  {
+    "Device": "COM#",
+    "Desc": "Thorlabs, Inc. - MDT694B RS232 Interface (COM#)",
+    "Manufacturer": "Thorlabs, Inc.",
+    "Product": null,
+    "SerialNumber": "<SERIAL_PLACEHOLDER>",
+    "VID:PID": "1313:1004",
+    "Location": "<LOCATION_PLACEHOLDER>",
+    "HWID": "USB VID:PID=1313:1004 SER=<SERIAL_PLACEHOLDER> LOCATION=<LOCATION>",
+    "LikelyMDT": "YES",
+    "Model": "MDT694B",
+    "ProbeAvailable": true,
+    "ProbeMatch": true,
+    "ProbeReply": "[  50.1]"
+  }
+]
