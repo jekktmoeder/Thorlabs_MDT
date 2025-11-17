@@ -33,6 +33,8 @@ python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
 
+Note: Active COM port probing (the `find_MDT_devices.py` convenience wrapper) requires `pyserial` to be installed. The `requirements.txt` provided includes `pyserial`, but if you install dependencies manually ensure `pyserial` is present for device probing to work.
+
 5) (Optional) Install the package in editable mode for local development
 
 ```powershell
