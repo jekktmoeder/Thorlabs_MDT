@@ -20,8 +20,8 @@ from typing import List
 # ---- pyserial is required for COM enumeration ----
 try:
     from serial.tools import list_ports
-except Exception as e:
-    print("pyserial not found. Install it with:\n  pip install --user pyserial")
+except Exception:
+    print("ERROR: pyserial is required for device discovery and probing.\nInstall it into your active Python environment with:\n  pip install pyserial\nOr install all project requirements:\n  pip install -r requirements.txt")
     sys.exit(1)
 
 # ---- Try to import MDT SDK wrappers if available (optional) ----
